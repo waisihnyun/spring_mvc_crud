@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Book</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css} "/>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="">New Book</h1>
+        <form action="#" th:action="@{/books/new}" th:object="${book}" method="post" id="newBookForm">
+            <div class="mb-3">
+                <label for="bookTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" id="bookTitle" th:field="*{title}">
+                <span class="alert-danger small text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="bookAuthor" class="form-label">Author</label>
+                <input type="text" class="form-control" id="bookAuthor" th:field="*{author}">
+                <span class="alert-danger small text-danger" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-secondary ms-3" th:href="@{/books}">Back</a>
+        </form>
+    </div>
+</body>
+</html>
